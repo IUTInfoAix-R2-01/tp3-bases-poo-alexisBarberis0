@@ -2,20 +2,19 @@ package exerciceAuthor;
 
 public class Book {
 	private String name;
-	private Author author;
+	private Author[] authors;
 	private double price;
 	private int qty = 0;
 	
-	public Book(String name, Author author, double price) {
+	public Book(String name, Author[] authors, double price) {
 		this.name = name;
-		this.author = author;
+		this.authors = authors;
 		this.price = price;
-		this.qty = qty;
 	}
 	
-	public Book(String name, Author author, double price, int qty) {
+	public Book(String name, Author[] authors, double price, int qty) {
 		this.name = name;
-		this.author = author;
+		this.authors = authors;
 		this.price = price;
 		this.qty = qty;
 	}
@@ -24,8 +23,8 @@ public class Book {
 		return name;
 	}
 	
-	public Author getAuthor() {
-		return author;
+	public Author[] getAuthors() {
+		return authors;
 	}
 	
 	public double getPrice() {
@@ -45,18 +44,39 @@ public class Book {
 	}
 	
 	public String toString() {
-		return "Book[name=" + name + ',' + author.toString() + ",price=" + price + ",qty=" + qty + ']'; 
+		String stringRep = "Book[name=" + name + ",authors={";
+		for (int i = 0 ; i < authors.length-1; ++i) {
+			stringRep += authors[i].toString() + ',';
+		}
+		stringRep += authors[authors.length-1]+ "},price=" + price + ",qty=" + qty + ']';
+		return  stringRep;
 	}
 	
-	public String getAuthorName() {
-		return author.getName();
+	
+	public String getAuthorsNames() {
+		String stringRep = "";
+		for (int i = 0 ; i < authors.length-1; ++i) {
+			stringRep += authors[i].getName() + ',';
+		}
+		stringRep += authors[authors.length-1].getName();
+		return stringRep;
 	}
 	
-	public String getAuthorEmail() {
-		return author.getEmail();
+	public String getAuthorsEmails() {
+		String stringRep = "";
+		for (int i = 0 ; i < authors.length-1; ++i) {
+			stringRep += authors[i].getEmail() + ',';
+		}
+		stringRep += authors[authors.length-1].getEmail();
+		return stringRep;
 	}
 	
-	public char getAuthorGender() {
-		return author.getGender();
+	public String getAuthorsGenders() {
+		String stringRep = "";
+		for (int i = 0 ; i < authors.length-1; ++i) {
+			stringRep +=  authors[i].getGender() + ',';
+		}
+		stringRep += authors[authors.length-1].getGender();
+		return stringRep;
 	}
 }
