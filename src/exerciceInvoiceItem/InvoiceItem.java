@@ -1,4 +1,4 @@
-package exerciceInvoiceitem;
+package exerciceInvoiceItem;
 
 public class InvoiceItem {
 	private String id;
